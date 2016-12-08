@@ -1,0 +1,6 @@
+string object_name
+uint8 count
+bool use_pose_val
+---
+bool success
+string object_name

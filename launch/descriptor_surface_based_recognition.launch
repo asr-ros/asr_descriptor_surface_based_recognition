@@ -1,0 +1,9 @@
+<!-- Standalone launch file for descriptor surface based recognition, starting object_database. @author Pascal Meissner, Tobias Allgeyer. @version See SVN -->
+
+<launch>
+
+  <node name="object_database" type="object_database" pkg="object_database" output="screen" />
+
+  <include file="$(find descriptor_surface_based_recognition)/launch/descriptor_surface_based_recognition_core.launch" /> 
+  
+</launch>

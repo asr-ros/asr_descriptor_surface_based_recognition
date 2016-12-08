@@ -1,0 +1,37 @@
+<!-- Descriptor surface based localizer launch. For usage in start_recognizers or to be called by standalone launch file. @author Pascal Meissner, Tobias Allgeyer. @version See SVN -->
+
+<launch>
+
+	<env name="ROSCONSOLE_CONFIG_FILE" 
+	  value="$(find descriptor_surface_based_recognition)/log/rosconsole.config"/>
+  	<node name="descriptor_surface_based_recognition" pkg="descriptor_surface_based_recognition" type="descriptor_surface_based_recognition" output="screen"  >
+	    
+	   <rosparam file="$(find descriptor_surface_based_recognition)/launch/desc_surf_rec_params_mild.yaml" />
+	   
+	   <param name="medianPointsOffset" value="3"/>
+	   <param name="samplingDistance" value="0.04"/>
+	   <param name="keypointFraction" value="0.3"/>
+	   
+	   <param name="useVisualisationColor" value="False"/>
+	   <param name="visualisationColorPointsRed" value="0"/>
+	   <param name="visualisationColorPointsGreen" value="255"/>
+	   <param name="visualisationColorPointsBlue" value="255"/>
+	   <param name="visualisationColorBoxRed" value="255"/>
+	   <param name="visualisationColorBoxGreen" value="0"/>
+	   <param name="visualisationColorBoxBlue" value="0"/>
+	   <param name="boundingBoxBorderSize" value="3"/>
+	   <param name="orientationTriangleSize" value="15"/>
+	   <param name="featurePointsRadius" value="2" />
+	   
+	   <param name="drawCloudBoxes" value="True" />
+	   <param name="drawCompleteCloudBoxes" value="True" />
+	   
+	   <param name="usePoseValidation" value="False" />
+	   <param name="poseValidationDistanceError" value="20" />
+	   <param name="aggressivePoseValidation" value="True" />
+	   
+	   <param name="evaluation" value="False" />
+	   
+  	</node>
+  
+</launch>

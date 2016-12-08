@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="descriptor_surface_based_trainer" pkg="descriptor_surface_based_recognition" type="descriptor_surface_based_trainer" output="screen"/>
+      
+  
+  
+</launch>

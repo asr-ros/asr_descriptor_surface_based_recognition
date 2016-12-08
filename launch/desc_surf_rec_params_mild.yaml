@@ -1,0 +1,20 @@
+image_color_topic: /stereo/left/image_rect_color
+image_mono_topic: /stereo/left/image_rect
+point_cloud_topic: /kinect/depth_registered_with_guppy/points
+
+output_objects_topic: /stereo/objects
+output_marker_topic: /stereo/visualization_marker
+output_marker_bounding_box_topic: object_boxes
+output_cloud_topic: object_clouds
+output_image_topic: objects_2D
+
+pose_val_image_width: 1292.0
+pose_val_image_height: 964.0
+pose_val_render_image_width: 800
+pose_val_render_image_height: 600
+pose_val_far_plane: 1.7
+pose_val_near_plane: 0.5 
+pose_val_cx: 586.589035
+pose_val_cy: 486.250793
+pose_val_fx: 2269.861315
+pose_val_fy: 2269.861315
