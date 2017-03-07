@@ -1,9 +1,9 @@
-<!-- Standalone launch file for descriptor surface based recognition, starting object_database. @author Pascal Meissner, Tobias Allgeyer. @version See SVN -->
+<!-- Standalone launch file for descriptor surface based recognition, starting asr_object_database. @author Pascal Meissner, Tobias Allgeyer. @version See SVN -->
 
 <launch>
 
-  <node name="object_database" type="object_database" pkg="object_database" output="screen" />
+  <node name="asr_object_database" type="asr_object_database" pkg="asr_object_database" output="screen" />
 
-  <include file="$(find descriptor_surface_based_recognition)/launch/descriptor_surface_based_recognition_core.launch" /> 
+  <include file="$(find asr_descriptor_surface_based_recognition)/launch/descriptor_surface_based_recognition_core.launch" /> 
   
 </launch>

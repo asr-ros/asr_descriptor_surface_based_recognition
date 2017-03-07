@@ -3,10 +3,10 @@
 <launch>
 
 	<env name="ROSCONSOLE_CONFIG_FILE" 
-	  value="$(find descriptor_surface_based_recognition)/log/rosconsole.config"/>
-  	<node name="descriptor_surface_based_recognition" pkg="descriptor_surface_based_recognition" type="descriptor_surface_based_recognition" output="screen"  >
+	  value="$(find asr_descriptor_surface_based_recognition)/log/rosconsole.config"/>
+  	<node name="asr_descriptor_surface_based_recognition" pkg="asr_descriptor_surface_based_recognition" type="asr_descriptor_surface_based_recognition" output="screen"  >
 	    
-	   <rosparam file="$(find descriptor_surface_based_recognition)/launch/desc_surf_rec_params_mild.yaml" />
+	   <rosparam file="$(find asr_descriptor_surface_based_recognition)/launch/desc_surf_rec_params_mild.yaml" />
 	   
 	   <param name="medianPointsOffset" value="3"/>
 	   <param name="samplingDistance" value="0.04"/>

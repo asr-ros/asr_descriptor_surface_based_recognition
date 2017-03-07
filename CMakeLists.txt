@@ -20,7 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
   rviz
   message_generation
   cmake_modules
-  ros_uri
+  asr_ros_uri
   asr_rapidxml
 )
 
@@ -55,7 +55,7 @@ generate_messages(
 
 catkin_package(
    INCLUDE_DIRS include
-   CATKIN_DEPENDS dynamic_reconfigure std_msgs roscpp ros_uri sensor_msgs asr_halcon_bridge roslib image_transport asr_msgs rviz asr_rapidxml
+   CATKIN_DEPENDS dynamic_reconfigure std_msgs roscpp asr_ros_uri sensor_msgs asr_halcon_bridge roslib image_transport asr_msgs rviz asr_rapidxml
    DEPENDS Boost Eigen)
    
 include_directories(

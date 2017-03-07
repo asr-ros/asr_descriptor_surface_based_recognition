@@ -242,7 +242,7 @@ void ViewCreatorDialog::onTestCameraImage(const sensor_msgs::Image::ConstPtr& ms
         HalconCpp::HImage img;
         std::string enc = "rgb8";
         if (use_file) {
-            boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+            boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
             std::string filename_str = input_path.string() + std::string(choice_test_image->GetStringSelection().mb_str());
             img = HalconCpp::HImage(filename_str.c_str());
         } else {
@@ -399,7 +399,7 @@ void ViewCreatorDialog::onChoiceImageSource( wxCommandEvent& event )
         case 1:
             {
                 std::vector<boost::filesystem::path> files;
-                boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+                boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
                 get_all_files_with_ext(input_path, ".png", files);
                 get_all_files_with_ext(input_path, ".jpg", files);
                 std::sort(files.begin(), files.end());
@@ -516,7 +516,7 @@ void ViewCreatorDialog::onChoiceImage( wxCommandEvent& event )
                 std::string str = std::string(choice_image->GetStringSelection().mb_str());
                 image_model_sub = nh.subscribe<sensor_msgs::Image>(str, 1, &ViewCreatorDialog::onModelCameraImage, this);
             } else if (choice_image_source->GetSelection() == 1) {
-                boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+                boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
                 wxString filename = wxString(input_path.string().c_str(), wxConvUTF8) + choice_image->GetStringSelection();
                 wxImage image(filename);
                 image = image.Scale(480, 360);
@@ -571,7 +571,7 @@ void ViewCreatorDialog::onChoiceTestImageSource(wxCommandEvent &event)
         case 1:
             {
                 std::vector<boost::filesystem::path> files;
-                boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+                boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
                 get_all_files_with_ext(input_path, ".png", files);
                 get_all_files_with_ext(input_path, ".jpg", files);
                 std::sort(files.begin(), files.end());
@@ -607,7 +607,7 @@ void ViewCreatorDialog::onChoiceTestImage( wxCommandEvent& event )
     image_test_sub.shutdown();
     if (choice_test_image->GetSelection() > 0) {
         if (choice_test_image_source->GetSelection() == 1) {
-            boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+            boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
             wxString filename = wxString(input_path.string().c_str(), wxConvUTF8) + choice_test_image->GetStringSelection();
             wxImage image(filename);
             image = image.Scale(480, 360);

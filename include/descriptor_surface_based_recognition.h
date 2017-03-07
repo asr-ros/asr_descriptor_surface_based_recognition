@@ -23,7 +23,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <ros/ros.h>
 #include <dynamic_reconfigure/server.h>
-#include <descriptor_surface_based_recognition/DescriptorSurfaceBasedRecognitionConfig.h>
+#include <asr_descriptor_surface_based_recognition/DescriptorSurfaceBasedRecognitionConfig.h>
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
@@ -34,13 +34,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <Eigen/Dense>
 
 #include <asr_msgs/AsrObject.h>
-#include <object_database/ObjectMetaData.h>
-#include <object_database/RecognizerListMeshes.h>
+#include <asr_object_database/ObjectMetaData.h>
+#include <asr_object_database/RecognizerListMeshes.h>
 
-#include <descriptor_surface_based_recognition/GetRecognizer.h>
-#include <descriptor_surface_based_recognition/ReleaseRecognizer.h>
-#include <descriptor_surface_based_recognition/GetObjectList.h>
-#include <descriptor_surface_based_recognition/ClearAllRecognizers.h>
+#include <asr_descriptor_surface_based_recognition/GetRecognizer.h>
+#include <asr_descriptor_surface_based_recognition/ReleaseRecognizer.h>
+#include <asr_descriptor_surface_based_recognition/GetObjectList.h>
+#include <asr_descriptor_surface_based_recognition/ClearAllRecognizers.h>
 
 #include "threadpool/threadpool.hpp"
 #include "pose_validation.h"
@@ -52,14 +52,16 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace descriptor_surface_based_recognition {
 
-const static std::string NODE_NAME("descriptor_surface_based_recognition");
+using namespace asr_descriptor_surface_based_recognition;
+
+const static std::string NODE_NAME("asr_descriptor_surface_based_recognition");
 
 const static std::string GET_RECOGNIZER_SERVICE_NAME("get_recognizer");
 const static std::string RELEASE_RECOGNIZER_SERVICE_NAME("release_recognizer");
 const static std::string GET_OBJECT_LIST_SERVICE_NAME("get_object_list");
 const static std::string CLEAR_ALL_RECOGNIZERS_SERVICE_NAME("clear_all_recognizers");
-const static std::string OBJECT_DB_SERVICE_OBJECT_TYPE ("/object_database/object_meta_data");
-const static std::string OBJECT_DB_SERVICE_OBJECT_MESHES("/object_database/recognizer_list_meshes");
+const static std::string OBJECT_DB_SERVICE_OBJECT_TYPE ("/asr_object_database/object_meta_data");
+const static std::string OBJECT_DB_SERVICE_OBJECT_MESHES("/asr_object_database/recognizer_list_meshes");
 
 /**
 *   The Evaluation files' names

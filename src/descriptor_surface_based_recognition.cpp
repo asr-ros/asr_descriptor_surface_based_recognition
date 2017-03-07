@@ -91,7 +91,7 @@ DescriptorSurfaceBasedRecognition::DescriptorSurfaceBasedRecognition() : nh_(NOD
     nh_.getParam("output_cloud_topic", output_cloud_topic_);
     nh_.getParam("output_image_topic", output_image_topic_);
 
-    PACKAGE_PATH = ros::package::getPath("descriptor_surface_based_recognition");
+    PACKAGE_PATH = ros::package::getPath("asr_descriptor_surface_based_recognition");
 
     // Set up dynamic reconfigure
     reconfigure_server_.setCallback(boost::bind(&DescriptorSurfaceBasedRecognition::configCallback, this, _1, _2));
@@ -105,8 +105,8 @@ DescriptorSurfaceBasedRecognition::DescriptorSurfaceBasedRecognition() : nh_(NOD
         outstream_poses_.open((path + "/" + OUTPUT_EVALUATION_FILE_POSES).c_str(), std::ofstream::out | std::ofstream::trunc);
     }
 
-    object_db_service_client_ = nh_.serviceClient<object_database::ObjectMetaData>(OBJECT_DB_SERVICE_OBJECT_TYPE);
-    object_db_meshes_service_client_ = nh_.serviceClient<object_database::RecognizerListMeshes>(OBJECT_DB_SERVICE_OBJECT_MESHES);
+    object_db_service_client_ = nh_.serviceClient<asr_object_database::ObjectMetaData>(OBJECT_DB_SERVICE_OBJECT_TYPE);
+    object_db_meshes_service_client_ = nh_.serviceClient<asr_object_database::RecognizerListMeshes>(OBJECT_DB_SERVICE_OBJECT_MESHES);
 
     ROS_DEBUG_STREAM("Database clients initialized");
 
@@ -145,13 +145,13 @@ DescriptorSurfaceBasedRecognition::DescriptorSurfaceBasedRecognition() : nh_(NOD
     ROS_DEBUG_STREAM("ROS services and publishers initialized");
 
     ROS_INFO_STREAM("TO RECOGNIZE A NEW OBJECT CALL THE FOLLOWING SERVICE: " << std::endl <<
-                    "                                       /descriptor_surface_based_recognition/get_recognizer <object_type_name> <instance_number> <use_pose_validation>" << std::endl <<
+                    "                                       /asr_descriptor_surface_based_recognition/get_recognizer <object_type_name> <instance_number> <use_pose_validation>" << std::endl <<
                     "                                TO END RECOGNITION FOR A SPECIFIC OBJECT CALL: " << std::endl <<
-                    "                                       /descriptor_surface_based_recognition/release_recognizer <object_type_name>" << std::endl <<
+                    "                                       /asr_descriptor_surface_based_recognition/release_recognizer <object_type_name>" << std::endl <<
                     "                                TO END RECOGNITION FOR ALL OBJECTS OF A TOPIC CALL: " << std::endl <<
-                    "                                       /descriptor_surface_based_recognition/clear_all_recognizers" << std::endl <<
+                    "                                       /asr_descriptor_surface_based_recognition/clear_all_recognizers" << std::endl <<
                     "                                TO GET A LIST OF ALL OBJECTS IT IS CURRENTLY SEARCHED FOR CALL: " << std::endl <<
-                    "                                       /descriptor_surface_based_recognition/get_object_list");
+                    "                                       /asr_descriptor_surface_based_recognition/get_object_list");
 }
 
 bool DescriptorSurfaceBasedRecognition::processGetRecognizerRequest(GetRecognizer::Request &req, GetRecognizer::Response &res) {
@@ -191,7 +191,7 @@ bool DescriptorSurfaceBasedRecognition::processClearAllRecognizersRequest(ClearA
 
 void DescriptorSurfaceBasedRecognition::initializeMeshes() {
 
-    object_database::RecognizerListMeshes objectMeshes;
+    asr_object_database::RecognizerListMeshes objectMeshes;
     objectMeshes.request.recognizer = OBJECT_DATABASE_CATEGORY;
     object_db_meshes_service_client_.call(objectMeshes.request, objectMeshes.response);
 
@@ -202,7 +202,7 @@ void DescriptorSurfaceBasedRecognition::initializeMeshes() {
 }
 
 bool DescriptorSurfaceBasedRecognition::startObjectRecognition(std::string name, int count, bool use_pose_val) {
-    object_database::ObjectMetaData objectType;
+    asr_object_database::ObjectMetaData objectType;
     objectType.request.object_type = name;
     objectType.request.recognizer = OBJECT_DATABASE_CATEGORY;
     object_db_service_client_.call(objectType.request, objectType.response);
@@ -915,7 +915,7 @@ int
 main (int argc, char** argv)
 {
 
-    ros::init (argc, argv, "descriptor_surface_based_recognition");
+    ros::init (argc, argv, "asr_descriptor_surface_based_recognition");
 
     descriptor_surface_based_recognition::DescriptorSurfaceBasedRecognition rec;
 

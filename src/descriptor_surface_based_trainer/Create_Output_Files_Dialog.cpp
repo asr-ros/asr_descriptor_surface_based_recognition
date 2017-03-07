@@ -33,8 +33,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 void CreateOutputFilesDialog::createOutputFiles()
 {
 
-    boost::filesystem::path output_path(ros::package::getPath("descriptor_surface_based_recognition") + OUTPUT_FOLDER + "/" + object_params.at(0) + "/");
-    boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+    boost::filesystem::path output_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + OUTPUT_FOLDER + "/" + object_params.at(0) + "/");
+    boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
     boost::filesystem::create_directory(output_path);
 
     std::ofstream logFile;

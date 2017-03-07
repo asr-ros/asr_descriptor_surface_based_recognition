@@ -34,7 +34,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Main_Dialog::Main_Dialog(wxWindow *parent) : MainDialogBase(parent)
 {
     std::vector<boost::filesystem::path> files;
-    boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+    boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
 
     get_all_files_with_ext(input_path, ".obj", files);
     for (int i = 0; i < files.size(); i++) {
@@ -75,7 +75,7 @@ Main_Dialog::Main_Dialog(wxWindow *parent, std::string name, std::string object_
     edit_score_3D->SetValue(wxString(score_3D.c_str(), wxConvUTF8));
 
     std::vector<boost::filesystem::path> files;
-    boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+    boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
 
     get_all_files_with_ext(input_path, ".obj", files);
     int selection = 0;
@@ -116,7 +116,7 @@ void Main_Dialog::onDialogClose(wxCloseEvent &event) {
 }
 
 void Main_Dialog::onObjectModelSelected(wxCommandEvent &event) {
-    boost::filesystem::path input_path(ros::package::getPath("descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
+    boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
     std::string object_model_name =  std::string(choice_object_model->GetStringSelection().mb_str());
     std::string object_model_path = input_path.string() + object_model_name;
     HalconCpp::HObjectModel3D model;

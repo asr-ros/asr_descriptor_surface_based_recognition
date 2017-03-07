@@ -88,7 +88,7 @@ and/or adjust the licensing conditions notice accordingly.
       Halcon
 ===================
 
-The use of descriptor_surface_based_recognition requires a licence to the HALCON library. Please refer to the HALCON End User Legal Agreement (EULA) for details:
+The use of asr_descriptor_surface_based_recognition requires a licence to the HALCON library. Please refer to the HALCON End User Legal Agreement (EULA) for details:
  
 MVTec Software GmbH - Software License Agreement for HALCON
 
