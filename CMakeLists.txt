@@ -66,7 +66,7 @@ include_directories(
 link_directories(${catkin_LIBRARY_DIRS})
 
 FILE(GLOB_RECURSE LIBFILES "include/*.h")
-add_executable(descriptor_surface_based_recognition src/descriptor_surface_based_recognition.cpp
+add_executable(asr_descriptor_surface_based_recognition src/descriptor_surface_based_recognition.cpp
                                                   src/pose_validation.cpp
                                                   src/object_descriptor.cpp
                                                   src/object_view_descriptor.cpp
@@ -75,21 +75,21 @@ add_executable(descriptor_surface_based_recognition src/descriptor_surface_based
                                                   src/pose_recognition.cpp
                                                   src/recognition_result.cpp
                                                   src/object_2D_positions.cpp ${LIBFILES})
-TARGET_LINK_LIBRARIES(descriptor_surface_based_recognition
+TARGET_LINK_LIBRARIES(asr_descriptor_surface_based_recognition
       ${Boost_LIBRARIES}
       ${catkin_LIBRARIES}
 )
 
-add_dependencies(descriptor_surface_based_recognition
+add_dependencies(asr_descriptor_surface_based_recognition
         ${PROJECT_NAME}_gencfg
         ${${PROJECT_NAME}_EXPORTED_TARGETS}
         asr_msgs_generate_messages_cpp
 )
 
-add_dependencies(descriptor_surface_based_recognition ${catkin_EXPORTED_TARGETS})
+add_dependencies(asr_descriptor_surface_based_recognition ${catkin_EXPORTED_TARGETS})
 
 
-add_executable(descriptor_surface_based_trainer src/descriptor_surface_based_trainer/Descriptor_Surface_Based_Trainer.cpp
+add_executable(asr_descriptor_surface_based_trainer src/descriptor_surface_based_trainer/Descriptor_Surface_Based_Trainer.cpp
                                                     src/descriptor_surface_based_trainer/Main_Dialog_Base.cpp
                                                     src/descriptor_surface_based_trainer/Main_Dialog.cpp
                                                     src/descriptor_surface_based_trainer/Desc_Models_Dialog_Base.cpp
@@ -104,7 +104,7 @@ add_executable(descriptor_surface_based_trainer src/descriptor_surface_based_tra
                                                     src/descriptor_surface_based_trainer/Create_Output_Files_Dialog_Base.cpp
                                                     src/descriptor_surface_based_trainer/Create_Output_Files_Dialog.cpp ${LIBFILES})
 
-TARGET_LINK_LIBRARIES(descriptor_surface_based_trainer
+TARGET_LINK_LIBRARIES(asr_descriptor_surface_based_trainer
         ${wxWidgets_LIBRARIES}
         ${Boost_LIBRARIES}
         ${catkin_LIBRARIES}

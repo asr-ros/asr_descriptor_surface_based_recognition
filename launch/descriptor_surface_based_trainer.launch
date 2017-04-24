@@ -1,6 +1,6 @@
 <launch>
 
-  <node name="descriptor_surface_based_trainer" pkg="descriptor_surface_based_recognition" type="descriptor_surface_based_trainer" output="screen"/>
+  <node name="asr_descriptor_surface_based_trainer" pkg="asr_descriptor_surface_based_recognition" type="asr_descriptor_surface_based_trainer" output="screen"/>
       
   
   
