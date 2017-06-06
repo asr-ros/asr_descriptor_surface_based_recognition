@@ -5,6 +5,7 @@
   <author>Allgeyer Tobias, Hutmacher Robin, Meißner Pascal</author>
   <maintainer email="asr-ros@lists.kit.edu">Meißner Pascal</maintainer>
   <license>GPL</license>
+  <url type="website">http://ros.org/wiki/asr_descriptor_surface_based_recognition</url>
 
   <buildtool_depend>catkin</buildtool_depend>
   <build_depend>std_msgs</build_depend>
