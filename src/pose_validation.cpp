@@ -46,7 +46,9 @@ PoseValidation::PoseValidation(double image_width, double image_height, double f
 
     render_sys_ = rviz::RenderSystem::get();
     root_ = render_sys_->root();
-    root_->initialise(false);
+    if (!root_->isInitialised()) {
+        root_->initialise(false);
+    }
 
     ROS_DEBUG_STREAM("Render system initialized");
 
@@ -101,10 +103,9 @@ PoseValidation::PoseValidation(double image_width, double image_height, double f
     ROS_DEBUG_STREAM("Create render window");
 
     window_ = root_->createRenderWindow("Pose validation render window", render_width, render_height, false);
+    //window_->setHidden(true);
     Ogre::WindowEventUtilities::messagePump();
     window_->addViewport(camera_);
-
-
 }
 
 bool PoseValidation::isInitialized() const
