@@ -1,1 +1,2 @@
 # asr_descriptor_surface_based_recognition
+Documentation: http://wiki.ros.org/asr_descriptor_surface_based_recognition
