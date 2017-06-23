@@ -27,8 +27,8 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(cmake_modules)
 find_package(Boost REQUIRED filesystem system thread regex)
 
-find_package(Eigen REQUIRED)
-include_directories(${Eigen_INCLUDE_DIRS})
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIRS})
 
 find_package(wxWidgets REQUIRED)
 include(${wxWidgets_USE_FILE})
@@ -56,7 +56,7 @@ generate_messages(
 catkin_package(
    INCLUDE_DIRS include
    CATKIN_DEPENDS dynamic_reconfigure std_msgs roscpp asr_ros_uri sensor_msgs asr_halcon_bridge roslib image_transport asr_msgs rviz asr_rapidxml
-   DEPENDS Boost Eigen)
+   DEPENDS Boost EIGEN3)
    
 include_directories(
         include
