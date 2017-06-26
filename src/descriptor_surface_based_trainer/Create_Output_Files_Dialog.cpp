@@ -87,7 +87,7 @@ void CreateOutputFilesDialog::createOutputFiles()
 
     rapidxml::xml_node<>* node_desc_models = doc.allocate_node(rapidxml::node_element, "descriptor_models");
 
-    for (int i = 0; i < views.size(); i++) {
+    for (unsigned int i = 0; i < views.size(); i++) {
 
         rapidxml::xml_node<>* node_desc_model = doc.allocate_node(rapidxml::node_element, "descriptor_model");
 
@@ -166,7 +166,7 @@ void CreateOutputFilesDialog::createOutputFiles()
         node_desc_model->append_node(node_desc_model_invertible);
 
         rapidxml::xml_node<>* node_desc_model_bounding_box = doc.allocate_node(rapidxml::node_element, "bounding_box");
-        for (int j = 0; j < views.at(i).getBoxCorners().size(); j++) {
+        for (unsigned int j = 0; j < views.at(i).getBoxCorners().size(); j++) {
             rapidxml::xml_node<>* node_desc_model_bounding_box_corner = doc.allocate_node(rapidxml::node_element, "corner_point");
             std::string point_vector = boost::lexical_cast<std::string>((int)(views.at(i).getBoxCorners().at(j)[0] - 0.5 * (int)views.at(i).getImage().Width())) + ", " + boost::lexical_cast<std::string>((int)(views.at(i).getBoxCorners().at(j)[1] - 0.5 * (int)views.at(i).getImage().Height()));
             node_desc_model_bounding_box_corner->value(doc.allocate_string(point_vector.c_str()));

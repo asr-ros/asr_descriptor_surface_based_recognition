@@ -116,7 +116,7 @@ void DescModelsDialog::onAddModelClicked( wxCommandEvent& event )
         if (params.getIsValid()) {
             list_box_views->Clear();
             views.push_back(params);
-            for (int i = 0; i < views.size(); i++) {
+            for (unsigned int i = 0; i < views.size(); i++) {
                 std::string name = this->name + "_view_" + boost::lexical_cast<std::string>(i + 1);
                 list_box_views->Insert(wxString(name.c_str(), wxConvUTF8), i);
             }
@@ -137,7 +137,7 @@ void DescModelsDialog::onDeleteModelClicked( wxCommandEvent& event )
     if (list_box_views->GetSelection() >= 0) {
         views.erase(views.begin() + list_box_views->GetSelection());
         list_box_views->Clear();
-        for (int i = 0; i < views.size(); i++) {
+        for (unsigned int i = 0; i < views.size(); i++) {
             std::string name = this->name + "_view_" + boost::lexical_cast<std::string>(i + 1);
             list_box_views->Insert(wxString(name.c_str(), wxConvUTF8), i);
         }
@@ -172,7 +172,7 @@ void DescModelsDialog::onFinishClicked( wxCommandEvent& event )
 {
     if (list_box_views->GetCount() > 0) {
         bool boxes_available = true;
-        for (int i = 0; i < views.size(); i++) {
+        for (unsigned int i = 0; i < views.size(); i++) {
             if (!(views.at(i).getHasBoundingBox())) {
                 boxes_available = false;
                 break;

@@ -34,18 +34,14 @@ namespace descriptor_surface_based_recognition {
 class RecognitionResult {
 
 private:
-
-    /** The found pose */
-    HalconCpp::HTuple pose_;
-
-    /** The found 2D-recognition score */
-    double score_2D_;
-
-    /** The found 3D-recognition score */
-    double score_3D_;
+    /** If true the pose of the model was correctly found (3D and 2D), false if the object was found only in 2D  */
+    bool model_found_;
 
     /** The index of the object view found in the 2D-recognition */
     int view_index;
+
+    /** The found 2D-recognition score */
+    double score_2D_;
 
     /** The transformation matrix of the view found in the 2D-recognition */
     HalconCpp::HHomMat2D trans_matrix_2D_;
@@ -53,23 +49,26 @@ private:
     /** The transformed (with the matrix above) center of the found view's feature points */
     Eigen::Vector2i tex_point_;
 
-    /** The 3D-point in the point cloud corrensponding to the texPoint above */
-    Eigen::Vector3d tex_point_3D_;
-
     /** The quaternion used to adjust the rotation of the pose above to get the correct pose */
     HalconCpp::HQuaternion adjusted_rotation_;
-
-    /** The reduced point cloud used to recognize the object */
-    pcl::PointCloud<pcl::PointXYZ>::Ptr search_cloud_;
 
     /** The length of the square, reduced search domain used for the 2D-recognition  */
     int search_radius_;
 
-    /** If true the pose of the model was correctly found (3D and 2D), false if the object was found only in 2D  */
-    bool model_found_;
-
     /** Indicates whether the found pose is valid */
     bool pose_valid_;
+
+    /** The found 3D-recognition score */
+    double score_3D_;
+
+    /** The 3D-point in the point cloud corrensponding to the texPoint above */
+    Eigen::Vector3d tex_point_3D_;
+
+    /** The reduced point cloud used to recognize the object */
+    pcl::PointCloud<pcl::PointXYZ>::Ptr search_cloud_;
+
+    /** The found pose */
+    HalconCpp::HTuple pose_;
 
 public:
     /** Macro needed to allow a dynamic construction of this class */

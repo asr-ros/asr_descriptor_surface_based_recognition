@@ -46,26 +46,20 @@ private:
     /** Ros subscriber which manages the subscription callback on the test-image-topic */
     ros::Subscriber image_test_sub;
 
-    /** Timer used to update the shown camera images */
-    wxTimer* update_timer;
-
-    /** Indicates whether an input camera image is fixed and can be used for the creation of the view */
-    bool fixed_image_available;
-
     /** The fixed image */
     HalconCpp::HImage fixedImage;
 
     /** A pointer to the parameters used for this view */
     ViewParamsWrapper *params;
 
-    /** Indicates whether a test is running */
-    bool test_running;
+    /** Indicates whether an input camera image is fixed and can be used for the creation of the view */
+    bool fixed_image_available;
 
     /** Indicates whether a descriptor-model used for testing is already created */
     bool desc_model_available;
 
-    /** The descriptor-model used for testing */
-    HalconCpp::HDescriptorModel desc_model;
+    /** Indicates whether a test is running */
+    bool test_running;
 
     /** The number of frames of the current test */
     int frame_counter;
@@ -78,6 +72,16 @@ private:
 
     /** The sum of the recognition-times of each frame of the current test */
     double time_sum;
+
+    /** Timer used to update the shown camera images */
+    wxTimer* update_timer;
+
+    /** The descriptor-model used for testing */
+    HalconCpp::HDescriptorModel desc_model;
+
+
+
+
 
     /** The thread used for painting the found features onto the input image during testing */
     boost::thread paint_thread;

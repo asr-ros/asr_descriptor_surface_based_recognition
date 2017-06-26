@@ -134,7 +134,7 @@ HalconCpp::HImage drawBoundingBox(HalconCpp::HImage image, std::vector<Eigen::Ve
         color.Append(0);
     }
     HalconCpp::HTuple rows, columns;
-    for (int i = 0; i < corner_points.size(); i++) {
+    for (unsigned int i = 0; i < corner_points.size(); i++) {
         rows.Append(corner_points.at(i)[1]);
         columns.Append(corner_points.at(i)[0]);
     }
