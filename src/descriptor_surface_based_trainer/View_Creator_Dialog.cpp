@@ -403,7 +403,7 @@ void ViewCreatorDialog::onChoiceImageSource( wxCommandEvent& event )
                 get_all_files_with_ext(input_path, ".png", files);
                 get_all_files_with_ext(input_path, ".jpg", files);
                 std::sort(files.begin(), files.end());
-                for (int i = 0; i < files.size(); i++) {
+                for (unsigned int i = 0; i < files.size(); i++) {
                     choice_image->AppendString(wxString(files[i].string().c_str(), wxConvUTF8));
                 }
 
@@ -422,7 +422,7 @@ void ViewCreatorDialog::onChoiceImageSource( wxCommandEvent& event )
                     }
                 }
                 std::sort(image_topics.begin(), image_topics.end());
-                for (int i = 0; i < image_topics.size(); i++) {
+                for (unsigned int i = 0; i < image_topics.size(); i++) {
                     choice_image->Insert(wxString(image_topics.at(i).c_str(), wxConvUTF8),i + 1);
                 }
                 break;
@@ -575,7 +575,7 @@ void ViewCreatorDialog::onChoiceTestImageSource(wxCommandEvent &event)
                 get_all_files_with_ext(input_path, ".png", files);
                 get_all_files_with_ext(input_path, ".jpg", files);
                 std::sort(files.begin(), files.end());
-                for (int i = 0; i < files.size(); i++) {
+                for (unsigned int i = 0; i < files.size(); i++) {
                     choice_test_image->AppendString(wxString(files[i].string().c_str(), wxConvUTF8));
                 }
 
@@ -594,7 +594,7 @@ void ViewCreatorDialog::onChoiceTestImageSource(wxCommandEvent &event)
                     }
                 }
                 std::sort(image_topics.begin(), image_topics.end());
-                for (int i = 0; i < image_topics.size(); i++) {
+                for (unsigned int i = 0; i < image_topics.size(); i++) {
                     choice_test_image->Insert(wxString(image_topics.at(i).c_str(), wxConvUTF8),i + 1);
                 }
                 break;

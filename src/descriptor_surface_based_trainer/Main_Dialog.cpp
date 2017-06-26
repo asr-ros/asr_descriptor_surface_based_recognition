@@ -37,7 +37,7 @@ Main_Dialog::Main_Dialog(wxWindow *parent) : MainDialogBase(parent)
     boost::filesystem::path input_path(ros::package::getPath("asr_descriptor_surface_based_recognition") + INPUT_FOLDER + "/");
 
     get_all_files_with_ext(input_path, ".obj", files);
-    for (int i = 0; i < files.size(); i++) {
+    for (unsigned int i = 0; i < files.size(); i++) {
         choice_object_model->AppendString(wxString(files[i].string().c_str(), wxConvUTF8));
     }   
     choice_object_model->SetSelection(0);
@@ -55,7 +55,7 @@ Main_Dialog::Main_Dialog(wxWindow *parent) : MainDialogBase(parent)
 
     files.clear();
     get_all_files_with_ext(input_path, ".dae", files);
-    for (int i = 0; i < files.size(); i++) {
+    for (unsigned int i = 0; i < files.size(); i++) {
         choice_mesh->AppendString(wxString(files[i].string().c_str(), wxConvUTF8));
     }
     choice_mesh->SetSelection(0);
@@ -79,7 +79,7 @@ Main_Dialog::Main_Dialog(wxWindow *parent, std::string name, std::string object_
 
     get_all_files_with_ext(input_path, ".obj", files);
     int selection = 0;
-    for (int i = 0; i < files.size(); i++) {
+    for (unsigned int i = 0; i < files.size(); i++) {
         choice_object_model->AppendString(wxString(files[i].string().c_str(), wxConvUTF8));
         if (files[i].string() == object_model) {
             selection = i;
@@ -91,7 +91,7 @@ Main_Dialog::Main_Dialog(wxWindow *parent, std::string name, std::string object_
     files.clear();
     selection = 0;
     get_all_files_with_ext(input_path, ".dae", files);
-    for (int i = 0; i < files.size(); i++) {
+    for (unsigned int i = 0; i < files.size(); i++) {
         choice_mesh->AppendString(wxString(files[i].string().c_str(), wxConvUTF8));
         if (files[i].string() == mesh) {
             selection = i;
