@@ -1,7 +1,7 @@
 <package>
   <name>asr_descriptor_surface_based_recognition</name>
   <version>1.0.0</version>
-  <description>This package contains an object detector for textured objects</description>
+  <description>This package contains a 6-DoF object localizer for textured household objects</description>
   <author>Allgeyer Tobias, Hutmacher Robin, Meißner Pascal</author>
   <maintainer email="asr-ros@lists.kit.edu">Meißner Pascal</maintainer>
   <license>GPL</license>
