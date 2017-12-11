@@ -24,7 +24,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <pcl/filters/filter.h>
 #include <pcl/filters/passthrough.h>
 #include <pcl_conversions/pcl_conversions.h>
-#include <halcon_pointcloud.h>
+#include <asr_halcon_bridge/halcon_pointcloud.h>
 
 #include <pcl/common/common.h>
 #include <ros/package.h>

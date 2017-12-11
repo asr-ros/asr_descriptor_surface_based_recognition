@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #include "descriptor_surface_based_trainer/Utils.h"
-#include <halcon_image.h>
+#include <asr_halcon_bridge/halcon_image.h>
 #include <boost/make_shared.hpp>
 
 

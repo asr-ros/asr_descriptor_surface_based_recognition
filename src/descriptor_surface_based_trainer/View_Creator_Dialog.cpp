@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "descriptor_surface_based_trainer/View_Creator_Dialog.h"
 #include "descriptor_surface_based_trainer/Create_Test_Model_Dialog.h"
 #include <wx/sizer.h>
-#include "halcon_image.h"
+#include <asr_halcon_bridge/halcon_image.h>
 #include <boost/regex.hpp>
 #include <ros/package.h>
 #include "descriptor_surface_based_trainer/Utils.h"
