@@ -83,7 +83,7 @@ void PoseRecognition::findPoses() {
                     object_ofstream << model_found - cloud_reduced << ";";
                 }
 
-                if (sqrt(pow(results_.at(i)->getPose()[0] - results_.at(i)->getTexPoint3D()[0], 2) + pow(results_.at(i)->getPose()[1] - results_.at(i)->getTexPoint3D()[1], 2) + pow(results_.at(i)->getPose()[2] - results_.at(i)->getTexPoint3D()[2], 2)) < (obj_desc_->getDiameter() * 0.5)) {
+                if (sqrt(pow(results_.at(i)->getPose()[0] - results_.at(i)->getTexPoint3D()[0], 2.0) + pow(results_.at(i)->getPose()[1] - results_.at(i)->getTexPoint3D()[1], 2.0) + pow(results_.at(i)->getPose()[2] - results_.at(i)->getTexPoint3D()[2], 2.0)) < (obj_desc_->getDiameter() * 0.5)) {
                     results_.at(i)->setModelFound();
                     //find rotation
                     adjustRotation(i);
@@ -223,7 +223,7 @@ bool PoseRecognition::findModelInCloud(int result_index)
         if ((score->Length() > 0) && ((*score)[0] >= obj_desc_->getScore3D())) {
             bool pose_already_found = false;
             for (int i = 0; i < result_index; i++) {
-                if ((results_.at(i)->checkModelFound()) && (sqrt(pow(results_.at(i)->getPose()[0] - poses.ConvertToTuple()[0], 2) + pow(results_.at(i)->getPose()[1] - poses.ConvertToTuple()[1], 2) + pow(results_.at(i)->getPose()[2] - poses.ConvertToTuple()[2], 2)) < (obj_desc_->getDiameter() * 0.5))) {
+                if ((results_.at(i)->checkModelFound()) && (sqrt(pow(results_.at(i)->getPose()[0] - poses.ConvertToTuple()[0], 2.0) + pow(results_.at(i)->getPose()[1] - poses.ConvertToTuple()[1], 2.0) + pow(results_.at(i)->getPose()[2] - poses.ConvertToTuple()[2], 2.0)) < (obj_desc_->getDiameter() * 0.5))) {
                     pose_already_found = true;
                     break;
                 }
