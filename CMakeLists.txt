@@ -10,8 +10,7 @@ find_package(catkin REQUIRED COMPONENTS
   dynamic_reconfigure
   std_msgs
   roscpp
-  sensor_msgs
-  asr_halcon_bridge
+  sensor_msgs  
   roslib
   image_transport
   asr_msgs
@@ -23,6 +22,12 @@ find_package(catkin REQUIRED COMPONENTS
   asr_ros_uri
   asr_rapidxml
 )
+
+find_package(asr_halcon_bridge)
+if(NOT ${asr_halcon_bridge_FOUND})
+   message(WARNING  "Skip processing ${PROJECT_NAME}, because HALCON library is missing!!! (see http://wiki.ros.org/asr_halcon_bridge)")
+   return()
+endif()
 
 find_package(cmake_modules)
 find_package(Boost REQUIRED filesystem system thread regex)
