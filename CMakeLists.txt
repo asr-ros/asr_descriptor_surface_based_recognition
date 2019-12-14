@@ -28,6 +28,7 @@ if(NOT ${asr_halcon_bridge_FOUND})
    message(WARNING  "Skip processing ${PROJECT_NAME}, because HALCON library is missing!!! (see http://wiki.ros.org/asr_halcon_bridge)")
    return()
 endif()
+include_directories(${asr_halcon_bridge_INCLUDE_DIRS})
 
 find_package(cmake_modules)
 find_package(Boost REQUIRED filesystem system thread regex)
@@ -83,6 +84,7 @@ add_executable(asr_descriptor_surface_based_recognition src/descriptor_surface_b
 TARGET_LINK_LIBRARIES(asr_descriptor_surface_based_recognition
       ${Boost_LIBRARIES}
       ${catkin_LIBRARIES}
+      ${asr_halcon_bridge_LIBRARIES}
 )
 
 add_dependencies(asr_descriptor_surface_based_recognition
@@ -113,4 +115,5 @@ TARGET_LINK_LIBRARIES(asr_descriptor_surface_based_trainer
         ${wxWidgets_LIBRARIES}
         ${Boost_LIBRARIES}
         ${catkin_LIBRARIES}
+        ${asr_halcon_bridge_LIBRARIES}
 )
